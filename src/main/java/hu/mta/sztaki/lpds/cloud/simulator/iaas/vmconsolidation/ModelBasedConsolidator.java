@@ -34,6 +34,9 @@ import hu.mta.sztaki.lpds.cloud.simulator.iaas.vmconsolidation.ModelPM.State;
  *         abstract IaaS-System.
  */
 public abstract class ModelBasedConsolidator extends Consolidator {
+	
+	// bug fix
+	protected IaaSService toConsolidate;
 
 	protected List<ModelPM> bins;
 	protected List<ModelVM> items;
@@ -55,6 +58,8 @@ public abstract class ModelBasedConsolidator extends Consolidator {
 	 */
 	public ModelBasedConsolidator(IaaSService toConsolidate, long consFreq) {
 		super(toConsolidate, consFreq);
+		
+		this.toConsolidate = toConsolidate;
 
 		bins = new ArrayList<>();
 		items = new ArrayList<>();
